@@ -42,6 +42,7 @@
             this.mainProgressBar = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxQuality = new System.Windows.Forms.TextBox();
+            this.checkBoxIncludeKML = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // labelInput
@@ -112,7 +113,7 @@
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.ReadOnly = true;
             this.textBoxLog.Size = new System.Drawing.Size(711, 225);
-            this.textBoxLog.TabIndex = 8;
+            this.textBoxLog.TabIndex = 9;
             // 
             // buttonStart
             // 
@@ -121,7 +122,7 @@
             this.buttonStart.Location = new System.Drawing.Point(12, 337);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(75, 23);
-            this.buttonStart.TabIndex = 9;
+            this.buttonStart.TabIndex = 10;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
@@ -133,7 +134,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(648, 337);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 11;
+            this.buttonCancel.TabIndex = 12;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -152,7 +153,7 @@
             this.mainProgressBar.Size = new System.Drawing.Size(549, 23);
             this.mainProgressBar.Step = 1;
             this.mainProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.mainProgressBar.TabIndex = 10;
+            this.mainProgressBar.TabIndex = 11;
             // 
             // label1
             // 
@@ -172,6 +173,16 @@
             this.textBoxQuality.Text = "40";
             this.textBoxQuality.Leave += new System.EventHandler(this.textBoxQuality_Leave);
             // 
+            // checkBoxIncludeKML
+            // 
+            this.checkBoxIncludeKML.AutoSize = true;
+            this.checkBoxIncludeKML.Location = new System.Drawing.Point(250, 82);
+            this.checkBoxIncludeKML.Name = "checkBoxIncludeKML";
+            this.checkBoxIncludeKML.Size = new System.Drawing.Size(107, 17);
+            this.checkBoxIncludeKML.TabIndex = 8;
+            this.checkBoxIncludeKML.Text = "Include KML files";
+            this.checkBoxIncludeKML.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.buttonStart;
@@ -179,6 +190,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(735, 372);
+            this.Controls.Add(this.checkBoxIncludeKML);
             this.Controls.Add(this.textBoxQuality);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mainProgressBar);
@@ -214,6 +226,7 @@
         private System.Windows.Forms.ProgressBar mainProgressBar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxQuality;
+        private System.Windows.Forms.CheckBox checkBoxIncludeKML;
     }
 }
 

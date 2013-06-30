@@ -70,7 +70,12 @@ namespace TilesToJPG
                 mainProgressBar.Value = 0;
                 buttonStart.Text = "ABORT";
 
-                m_convertThreadData = new ConvertTiles(this, textBoxInput.Text, textBoxOutput.Text, int.Parse(textBoxQuality.Text));
+                m_convertThreadData = new ConvertTiles(this,
+                    textBoxInput.Text,
+                    textBoxOutput.Text,
+                    int.Parse(textBoxQuality.Text),
+                    checkBoxIncludeKML.Checked);
+
                 ThreadStart start = new ThreadStart(m_convertThreadData.Run);
                 m_convertThread = new Thread(start);
                 m_convertThread.Start();

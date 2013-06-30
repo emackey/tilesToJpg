@@ -19,17 +19,19 @@ namespace TilesToJPG
         private string m_inputFolderName;
         private string m_outputFolderName;
         private int m_quality;
+        private bool m_includeKML;
         private RunMode m_runMode;
         private MainForm m_parent;
         private ImageCodecInfo m_imageCodecInfo;
         private EncoderParameters m_encoderParameters;
 
-        public ConvertTiles(MainForm parent, string inputName, string outputName, int quality)
+        public ConvertTiles(MainForm parent, string inputName, string outputName, int quality, bool includeKML)
         {
             m_parent = parent;
             m_inputFolderName = inputName;
             m_outputFolderName = outputName;
             m_quality = quality;
+            m_includeKML = includeKML;
             m_runMode = RunMode.Idle;
         }
 
@@ -84,13 +86,17 @@ namespace TilesToJPG
                     string outFileName = m_outputFolderName + inFileName.Substring(inputNameLength);
                     string extension = Path.GetExtension(inFileName).ToLowerInvariant();
 
-                    if (extension.Equals(".kml"))
+                    if (m_includeKML && extension.Equals(".kml"))
                     {
                         processKML(inFileName, outFileName);
                     }
                     else if (extension.Equals(".png"))
                     {
                         processPNG(inFileName, outFileName.Substring(0, outFileName.Length - 4) + ".jpg");
+                    }
+                    else if (Path.GetFileName(inFileName).ToLowerInvariant().Equals("tilemapresource.xml"))
+                    {
+                        processTileMapResource(inFileName, outFileName);
                     }
                 }
 
@@ -120,8 +126,19 @@ namespace TilesToJPG
         {
             m_parent.ThreadSafeLogMessage(outFileName);
 
+            Directory.CreateDirectory(Path.GetDirectoryName(outFileName));
             Bitmap bitmap = new Bitmap(Image.FromFile(inFileName));
             bitmap.Save(outFileName, m_imageCodecInfo, m_encoderParameters);
+        }
+
+        private void processTileMapResource(string inFileName, string outFileName)
+        {
+            string text = File.ReadAllText(inFileName);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(outFileName));
+            File.WriteAllText(outFileName, text
+                .Replace("mime-type=\"image/png\"", "mime-type=\"image/jpg\"")
+                .Replace("extension=\"png\"", "extension=\"jpg\""));
         }
     }
 }
