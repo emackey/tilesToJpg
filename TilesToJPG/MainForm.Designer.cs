@@ -40,12 +40,14 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.threadTimer = new System.Windows.Forms.Timer(this.components);
             this.mainProgressBar = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxQuality = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelInput
             // 
             this.labelInput.AutoSize = true;
-            this.labelInput.Location = new System.Drawing.Point(20, 17);
+            this.labelInput.Location = new System.Drawing.Point(24, 17);
             this.labelInput.Name = "labelInput";
             this.labelInput.Size = new System.Drawing.Size(63, 13);
             this.labelInput.TabIndex = 0;
@@ -55,15 +57,15 @@
             // 
             this.textBoxInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxInput.Location = new System.Drawing.Point(89, 14);
+            this.textBoxInput.Location = new System.Drawing.Point(93, 14);
             this.textBoxInput.Name = "textBoxInput";
-            this.textBoxInput.Size = new System.Drawing.Size(434, 20);
+            this.textBoxInput.Size = new System.Drawing.Size(549, 20);
             this.textBoxInput.TabIndex = 1;
             // 
             // buttonBrowseInput
             // 
             this.buttonBrowseInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowseInput.Location = new System.Drawing.Point(529, 12);
+            this.buttonBrowseInput.Location = new System.Drawing.Point(648, 12);
             this.buttonBrowseInput.Name = "buttonBrowseInput";
             this.buttonBrowseInput.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowseInput.TabIndex = 2;
@@ -74,7 +76,7 @@
             // buttonOutput
             // 
             this.buttonOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOutput.Location = new System.Drawing.Point(529, 45);
+            this.buttonOutput.Location = new System.Drawing.Point(648, 45);
             this.buttonOutput.Name = "buttonOutput";
             this.buttonOutput.Size = new System.Drawing.Size(75, 23);
             this.buttonOutput.TabIndex = 5;
@@ -86,15 +88,15 @@
             // 
             this.textBoxOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxOutput.Location = new System.Drawing.Point(89, 47);
+            this.textBoxOutput.Location = new System.Drawing.Point(93, 47);
             this.textBoxOutput.Name = "textBoxOutput";
-            this.textBoxOutput.Size = new System.Drawing.Size(434, 20);
+            this.textBoxOutput.Size = new System.Drawing.Size(549, 20);
             this.textBoxOutput.TabIndex = 4;
             // 
             // labelOutput
             // 
             this.labelOutput.AutoSize = true;
-            this.labelOutput.Location = new System.Drawing.Point(12, 50);
+            this.labelOutput.Location = new System.Drawing.Point(16, 50);
             this.labelOutput.Name = "labelOutput";
             this.labelOutput.Size = new System.Drawing.Size(71, 13);
             this.labelOutput.TabIndex = 3;
@@ -105,21 +107,21 @@
             this.textBoxLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLog.Location = new System.Drawing.Point(12, 73);
+            this.textBoxLog.Location = new System.Drawing.Point(12, 106);
             this.textBoxLog.Multiline = true;
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.ReadOnly = true;
-            this.textBoxLog.Size = new System.Drawing.Size(592, 152);
-            this.textBoxLog.TabIndex = 6;
+            this.textBoxLog.Size = new System.Drawing.Size(711, 225);
+            this.textBoxLog.TabIndex = 8;
             // 
             // buttonStart
             // 
             this.buttonStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonStart.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonStart.Location = new System.Drawing.Point(12, 231);
+            this.buttonStart.Location = new System.Drawing.Point(12, 337);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(75, 23);
-            this.buttonStart.TabIndex = 7;
+            this.buttonStart.TabIndex = 9;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
@@ -128,10 +130,10 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(529, 231);
+            this.buttonCancel.Location = new System.Drawing.Point(648, 337);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 9;
+            this.buttonCancel.TabIndex = 11;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -145,12 +147,30 @@
             // 
             this.mainProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainProgressBar.Location = new System.Drawing.Point(93, 231);
+            this.mainProgressBar.Location = new System.Drawing.Point(93, 337);
             this.mainProgressBar.Name = "mainProgressBar";
-            this.mainProgressBar.Size = new System.Drawing.Size(430, 23);
+            this.mainProgressBar.Size = new System.Drawing.Size(549, 23);
             this.mainProgressBar.Step = 1;
             this.mainProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.mainProgressBar.TabIndex = 8;
+            this.mainProgressBar.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Output quality:";
+            // 
+            // textBoxQuality
+            // 
+            this.textBoxQuality.Location = new System.Drawing.Point(93, 80);
+            this.textBoxQuality.Name = "textBoxQuality";
+            this.textBoxQuality.Size = new System.Drawing.Size(100, 20);
+            this.textBoxQuality.TabIndex = 7;
+            this.textBoxQuality.Text = "40";
+            this.textBoxQuality.Leave += new System.EventHandler(this.textBoxQuality_Leave);
             // 
             // MainForm
             // 
@@ -158,7 +178,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(616, 266);
+            this.ClientSize = new System.Drawing.Size(735, 372);
+            this.Controls.Add(this.textBoxQuality);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.mainProgressBar);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonStart);
@@ -190,6 +212,8 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Timer threadTimer;
         private System.Windows.Forms.ProgressBar mainProgressBar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxQuality;
     }
 }
 

@@ -51,6 +51,17 @@ namespace TilesToJPG
             }
         }
 
+        private void textBoxQuality_Leave(object sender, EventArgs e)
+        {
+            int quality = 40;
+            try
+            {
+                quality = int.Parse(textBoxQuality.Text);
+            }
+            catch { }
+            textBoxQuality.Text = quality.ToString();
+        }
+
         private void buttonStart_Click(object sender, EventArgs e)
         {
             if (m_convertThreadData == null)
@@ -59,7 +70,7 @@ namespace TilesToJPG
                 mainProgressBar.Value = 0;
                 buttonStart.Text = "ABORT";
 
-                m_convertThreadData = new ConvertTiles(this, textBoxInput.Text, textBoxOutput.Text);
+                m_convertThreadData = new ConvertTiles(this, textBoxInput.Text, textBoxOutput.Text, int.Parse(textBoxQuality.Text));
                 ThreadStart start = new ThreadStart(m_convertThreadData.Run);
                 m_convertThread = new Thread(start);
                 m_convertThread.Start();
