@@ -170,7 +170,7 @@
             this.textBoxQuality.Name = "textBoxQuality";
             this.textBoxQuality.Size = new System.Drawing.Size(100, 20);
             this.textBoxQuality.TabIndex = 7;
-            this.textBoxQuality.Text = "40";
+            this.textBoxQuality.Text = "85";
             this.textBoxQuality.Leave += new System.EventHandler(this.textBoxQuality_Leave);
             // 
             // checkBoxIncludeKML

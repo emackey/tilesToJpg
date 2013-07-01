@@ -24,9 +24,9 @@ namespace TilesToJPG
         private void buttonBrowseInput_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Title = "Select the file \"doc.kml\" from the root of the tiles folder.";
-            dlg.Filter = "doc.kml|doc.kml|All Files (*.*)|*.*";
-            dlg.FileName = textBoxInput.Text + "doc.kml";
+            dlg.Title = "Select the file \"tilemapresource.xml\" from the root of the tiles folder.";
+            dlg.Filter = "tilemapresource.xml|tilemapresource.xml|All Files (*.*)|*.*";
+            dlg.FileName = textBoxInput.Text + "tilemapresource.xml";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 textBoxInput.Text = Path.GetDirectoryName(dlg.FileName) + "\\";
@@ -53,7 +53,7 @@ namespace TilesToJPG
 
         private void textBoxQuality_Leave(object sender, EventArgs e)
         {
-            int quality = 40;
+            int quality = 85;
             try
             {
                 quality = int.Parse(textBoxQuality.Text);
